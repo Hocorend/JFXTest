@@ -43,12 +43,7 @@ public class MenuGame extends App{
             }
         });
 
-        exitGame.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                stage.close();
-            }
-        });
+        exitGame.setOnAction((ea)-> stage.close());
 
         FlowPane flowPaneMenu = new FlowPane(Orientation.VERTICAL,10,20);
         flowPaneMenu.setAlignment(Pos.CENTER);
