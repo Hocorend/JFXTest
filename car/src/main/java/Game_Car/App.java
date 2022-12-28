@@ -46,7 +46,9 @@ public class App extends Application {
         MenuGame menuGame = new MenuGame();
         menuGame.menu(window);
 
-        window.setOnCloseRequest(ae -> ConfirmExit.confirm());
+        window.setOnCloseRequest(ae -> {
+            ae.consume();
+            ConfirmExit.confirm();});
 
 
         /*
