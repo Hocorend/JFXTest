@@ -29,20 +29,16 @@ public class MenuGame extends App{
         exitGame = new Button();
         exitGame.setText("Exit");
 
-        startGame.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        startGame.setOnAction(ae -> {
 
-            }
-        });
+            //Game
 
-        settingsGame.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+            });
+
+        settingsGame.setOnAction(ae -> {
                 SettingsGame settingsGame = new SettingsGame();
                 settingsGame.settingsGame(stage);
-            }
-        });
+            });
 
         exitGame.setOnAction((ea)-> confirmExit.confirm());
 

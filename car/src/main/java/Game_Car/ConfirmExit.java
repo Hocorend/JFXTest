@@ -16,7 +16,7 @@ public class ConfirmExit extends App{
     public static void confirm(){
         Stage windowExit = new Stage();
         windowExit.initModality(Modality.APPLICATION_MODAL);
-        windowExit.setTitle("Confirm exit");
+        windowExit.setTitle("Exit confirmation");
 
         Label label = new Label("You want to close the game?");
         label.setText(label.getText());

@@ -35,33 +35,24 @@ public class SettingsGame extends App{
 
         back.setText("Back");
 
-        back.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        back.setOnAction(ae -> {
                 MenuGame menuGame = new MenuGame();
                 menuGame.menu(stage);
-            }
-        });
+            });
 
         apply.setText("Apply");
 
-        apply.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        apply.setOnAction(ae -> {
                 setModeScreen(mode);
                 stage.setFullScreen(getModeScreen());
-            }
-        });
+            });
 
-        modeScreenBox.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        modeScreenBox.setOnAction(ae -> {
                 if("Fullscreen" == modeScreenBox.getValue()){
                     mode = true;
                 }
                 else mode = false;
-            }
-        });
+            });
 
         FlowPane flowPane = new FlowPane(Orientation.VERTICAL,10,20);
         flowPane.setAlignment(Pos.CENTER);
