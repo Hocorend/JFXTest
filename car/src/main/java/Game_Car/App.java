@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class App extends Application{
 
     static Stage window;
 
@@ -50,55 +50,6 @@ public class App extends Application {
             ae.consume();
             ConfirmExit.confirm();});
 
-
-        /*
-       stage.setTitle("Car");
-       startGame = new Button();
-       startGame.setText("Start");
-
-       settingsGame = new Button();
-       settingsGame.setText("Settings");
-
-       exitGame = new Button();
-       exitGame.setText("Exit");
-
-       startGame.setOnAction(new EventHandler<ActionEvent>() {
-           @Override
-           public void handle(ActionEvent actionEvent) {
-
-           }
-       });
-
-       settingsGame.setOnAction(new EventHandler<ActionEvent>() {
-           @Override
-           public void handle(ActionEvent actionEvent) {
-
-           }
-       });
-
-       exitGame.setOnAction(new EventHandler<ActionEvent>() {
-           @Override
-           public void handle(ActionEvent actionEvent) {
-               stage.close();
-           }
-       });
-
-       FlowPane flowPaneMenu = new FlowPane(Orientation.VERTICAL,10,20);
-       flowPaneMenu.setAlignment(Pos.CENTER);
-       flowPaneMenu.setColumnHalignment(HPos.CENTER);
-       flowPaneMenu.getChildren().addAll(startGame,settingsGame,exitGame);
-
-       Scene sceneMenu = new Scene(flowPaneMenu,500,500);
-       stage.setScene(sceneMenu);
-
-       stage.show();
-
-    }
-
-    public static void main(String[] args) {
-        launch();
-
-         */
     }
 
 }

@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 public class MenuGame extends App{
     App app = new App();
+    Game game = new Game();
     ConfirmExit confirmExit = new ConfirmExit();
     Button startGame;
     Button settingsGame;
@@ -65,6 +66,7 @@ public class MenuGame extends App{
         startGame.setOnAction(ae -> {
 
             //Game
+            game.game(stage);
 
             });
 
