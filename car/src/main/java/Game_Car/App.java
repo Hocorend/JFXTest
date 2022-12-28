@@ -46,6 +46,8 @@ public class App extends Application {
         MenuGame menuGame = new MenuGame();
         menuGame.menu(window);
 
+        window.setOnCloseRequest(ae -> ConfirmExit.confirm());
+
 
         /*
        stage.setTitle("Car");

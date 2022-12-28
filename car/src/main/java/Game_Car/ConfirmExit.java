@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 public class ConfirmExit extends App{
 
-    static boolean answer;
-
     public static void confirm(){
         Stage windowExit = new Stage();
         windowExit.initModality(Modality.APPLICATION_MODAL);
