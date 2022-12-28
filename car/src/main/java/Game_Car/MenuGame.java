@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class MenuGame extends App{
     App app = new App();
+    ConfirmExit confirmExit = new ConfirmExit();
     Button startGame;
     Button settingsGame;
     Button exitGame;
@@ -43,7 +44,7 @@ public class MenuGame extends App{
             }
         });
 
-        exitGame.setOnAction((ea)-> stage.close());
+        exitGame.setOnAction((ea)-> confirmExit.confirm());
 
         FlowPane flowPaneMenu = new FlowPane(Orientation.VERTICAL,10,20);
         flowPaneMenu.setAlignment(Pos.CENTER);

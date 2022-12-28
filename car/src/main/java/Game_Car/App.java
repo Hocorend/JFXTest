@@ -20,10 +20,12 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    static Stage window;
+
     Button startGame;
     Button settingsGame;
     Button exitGame;
-    boolean modeScreen = true;
+    boolean modeScreen = false;
 
     public void setModeScreen(boolean modeScreen) {
         this.modeScreen = modeScreen;
@@ -35,9 +37,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
+        window = stage;
+        window.setMinHeight(200);
+        window.setMinWidth(200);
+        window.setMaxHeight(1000);
+        window.setMaxWidth(1000);
 
         MenuGame menuGame = new MenuGame();
-        menuGame.menu(stage);
+        menuGame.menu(window);
 
 
         /*
