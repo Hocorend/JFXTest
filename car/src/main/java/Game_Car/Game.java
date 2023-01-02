@@ -19,22 +19,33 @@ import java.util.TimerTask;
 
 public class Game implements EventHandler<KeyEvent>{
 
+
+
     double x;
     double y;
 
-    GraphicsContext gc;
-    Canvas canvas;
+    Button pause = new Button("Pause");
+
+    Canvas canvas = new Canvas();
+    GraphicsContext gc = canvas.getGraphicsContext2D();
+    BorderPane borderPane = new BorderPane();
+    Scene scene = new Scene(borderPane,500,500);
+    Barricade barricade1,barricade2,barricade3,barricade4,barricade5,barricade6;
 
     public void game(Stage stage){
+        barricade1 = new Barricade(20,0);
 
-        BorderPane borderPane = new BorderPane();
-        Scene scene = new Scene(borderPane,500,500);
+
+
+
+
+
 
         Button left = new Button("Left");
         left.setPrefSize(100,Double.MAX_VALUE);
         Button right = new Button("Right");
         right.setPrefSize(100,Double.MAX_VALUE);
-        Button pause = new Button("Pause");
+
         pause.setPrefSize(Double.MAX_VALUE,50);
 
         canvas = new Canvas(scene.getWidth()-200,scene.getHeight()-50);
@@ -51,19 +62,30 @@ public class Game implements EventHandler<KeyEvent>{
                 gc.fillRect(canvas.getWidth()-20,0,20,canvas.getHeight());
                 gc.fillRect(x, y, 40, 40);
 
+                gc.fillRect(barricade1.getX(),barricade1.getY(), barricade1.getWeight(), barricade1.getHeight());
             }
         };
         timer.start();
+
+
 
         gc.fillRect(0,0,20,canvas.getHeight());
         gc.fillRect(canvas.getWidth()-20,0,20,canvas.getHeight());
 
 
 
-        left.setOnAction(actionEvent -> left());
-        right.setOnAction(actionEvent -> right());
+        left.setOnAction(actionEvent -> {if(pause.getText()=="Pause")left();});
+        right.setOnAction(actionEvent -> {if(pause.getText()=="Pause")right();});
 
-
+        pause.setOnAction(actionEvent -> {
+                if(pause.getText()=="Pause"){
+                    timer.stop();
+                    pause.setText("Play");
+                } else if (pause.getText()=="Play") {
+                    timer.start();
+                    pause.setText("Pause");
+                }
+        });
 
         scene.setOnKeyPressed(this);
 
@@ -71,9 +93,9 @@ public class Game implements EventHandler<KeyEvent>{
         borderPane.setRight(right);
         borderPane.setTop(pause);
 
+
+
         borderPane.setCenter(canvas);
-
-
 
         stage.setScene(scene);
         stage.show();
@@ -92,7 +114,9 @@ public class Game implements EventHandler<KeyEvent>{
     }
 
     public void handle(KeyEvent event) {
-        if (event.getCode().toString() == "A") left();
-        if (event.getCode().toString() == "D") right();
+        if(pause.getText()=="Pause") {
+            if (event.getCode().toString() == "A") left();
+            if (event.getCode().toString() == "D") right();
+        }
     }
 }

@@ -48,8 +48,8 @@ public class App extends Application{
 
         window.setOnCloseRequest(ae -> {
             ae.consume();
-            ConfirmExit.confirm();});
-
+            ConfirmExit.confirm();
+        });
     }
 
 }
